@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const button = buttons[i];
         button.addEventListener('click', function(){
             const value=button.innerText;
-
+            try{
             if(value=="AC"){
                 currentValue ="";
                 display.value=currentValue;
@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             }else{
                 currentValue +=value;
+                display.value=currentValue;
+            }
+            }catch(error){
+                console.error(error);
+                currentValue="error";
                 display.value=currentValue;
             }
         });
